@@ -47,7 +47,8 @@ cacheSolve <- function(x, ...) {
     return(inv) #function terminated
   }
   matrix <- x$get() #if we've made it this far in the program, it is because of a cache miss
-  inv <- solve(matrix, ...)
+  inv <- solve(matrix, ...) #forum posters pointed out that ginv() is the matrix inverse function
+  #the assignment instructions said solve() and solve() seems to give the same results, so I'll stick with it
   x$setInv(inv) #since to get here the cache was empty, we now cache the result
   inv
 }
